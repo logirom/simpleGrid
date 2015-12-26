@@ -5,6 +5,10 @@
   "authors": [
     "logirom <loginov.roman@gmail.com>"
   ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.0"
+  },
   "description": "Simple canvas based grid",
   "main": "dist/simpleGrid.js",
   "keywords": [
