@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grid example</title>
+
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/underscore/underscore-min.js"></script>
+
+    <script src="./grid-main.js"></script>
+
+</head>
+
+<body>
+<div id="grid"></div>
+<div id="gridDs"></div>
+<div id="gridDs1"></div>
+<div id="gridDs2"></div>
+<div id="gridDs3"></div>
+<div>
+    <button id="collapseAll">Collapse All</button>
+    <button id="expandAll">Expand All</button>
+</div>
+</body>
+
+<script>
+    $(document).ready(function (){
+        var gridContainer = $("#grid");
+
+        var grid = new Grid({
+            rowsNumber : 10,
+            columnsNumber : 10,
+            cellOptions : {
+                backColor : "#CECECE",
+                foreColor : "#555555",
+                font : "bold 12px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            }
+
+        }, gridContainer);
+
+        for (var i = 0; i < 10; i++){
+            grid.getCell(i, 0).value = i + "1";
+        }
+
+        var c11 = grid.getCell(1, 1);
+        c11.cellType = ControlType.Text;
+        c11.data = "example long long";
+        c11.valueChanged_bind(function (value) { console.info("Text cell value changed: " + value);});
+        var c12 = grid.getCell(1, 2);
+        c12.cellType = ControlType.CheckBox;
+        c12.label = "it's checkbox";
+        c12.valueChanged_bind(function (v){
+            console.info ("Checkbox changed: " + v);
+        });
+        var c13 = grid.getCell(1, 3);
+        c13.cellType = ControlType.ComboBox;
+        c13.addItems(["1", "2", "3"]);
+        c13.valueChanged_bind(function (v){
+            console.info (v);
+        });
+
+        grid.setRowsGroup(5, 3, true);
+        grid.setRowsGroup(0, 3, true);
+
+        $("#collapseAll").click(function (){
+            grid.collapseAll();
+        });
+        $("#expandAll").click(function (){
+            grid.expandAll();
+        });
+
+
+    });
+</script>
+</html>

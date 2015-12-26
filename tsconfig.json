@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "CommonJS",
+    "target": "es5",
+    "noImplicitAny": false,
+    "outFile": "./dist/simpleGrid.js",
+    "outDir": "./dist/simpleGrid"
+  },
+  "files": [
+    "src/grid.ts"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "simpleGrid",
+  "version": "0.0.1",
+  "description": "Simple canvas based grid",
+  "main": "dist/simpleGrid.js",
+  "scripts": {
+    "preinstall": "tsd install jquery && tsd install underscore",
+    "prepublish": "tsc",
+    "test": "node test/test.js"
+  },
+  "author": "Roman Loginov",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "jquery": "~2.1.0"
+  }
+}

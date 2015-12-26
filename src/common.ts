@@ -1,0 +1,1 @@
+enum ControlType { ReadOnly, Text, CheckBox, ComboBox, Expander}

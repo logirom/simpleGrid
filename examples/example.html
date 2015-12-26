@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grid example</title>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/underscore/underscore-min.js"></script>
+
+    <script src="../dist/simpleGrid.js"></script>
+</head>
+
+<body>
+    <div id="grid"></div>
+    <div id="gridDs"></div>
+    <div id="gridDs1"></div>
+    <div id="gridDs2"></div>
+    <div id="gridDs3"></div>
+    <div id="gridDs4"></div>
+    <div>
+        <button id="collapseAll">Collapse All</button>
+        <button id="expandAll">Expand All</button>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function (){
+        var data = [1, 2, 3];
+        var data1 = [[1, 2, 3], [3, 4, 5]];
+        var dataObj = [{name: "Name1", age: 10, sex : "male"}, {age: 11, name: "Name2", sname: "SName2", sex : "male"}, {age: 12, name: "Name3", sex : "female"}];
+
+        new Grid({
+
+            cellOptions : {
+                backColor : "#CECECE",
+                foreColor : "#555555",
+                font : "bold 12px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            },
+            dataSource : new GridDataSource({
+                data : data
+            })
+        }, $("#gridDs")).refresh();
+        new Grid({
+
+            cellOptions : {
+                backColor : "#CECECE",
+                foreColor : "#555555",
+                font : "bold 12px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            },
+            dataSource : new GridDataSource({
+                data : data1
+            })
+        }, $("#gridDs1")).refresh();
+        new Grid({
+
+            headerRow : 0,
+            headerHeight : 20,
+            cellOptions : {
+                backColor : "#CECECE",
+                foreColor : "#555555",
+                font : "bold 12px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            },
+            dataSource : new GridDataSource({
+                data : dataObj
+            })
+        }, $("#gridDs2")).refresh();
+
+
+        var sexOptionsData = ['male', 'female'];
+        var sharedDataSource = new GridDataSource({
+            columns : [
+                {
+                    name : "Name",
+                    field : "name"
+                },
+                {
+                    name : "Age",
+                    field : "age",
+                    type : ControlType.Text
+                },
+                {
+                    name : "Sex",
+                    field : "sex",
+                    type : ControlType.ComboBox,
+                    options : sexOptionsData
+                }
+            ],
+            data : dataObj
+        });
+        new Grid({
+            headerRow : 0,
+            headerHeight : 20,
+
+            cellOptions : {
+                backColor : "#DEDEDE",
+                foreColor : "#5555AA",
+                font : "bold 14px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            },
+            dataSource : sharedDataSource
+        }, $("#gridDs3")).refresh();
+        new Grid({
+            headerRow : 0,
+            headerHeight : 20,
+
+            cellOptions : {
+                backColor : "#DEDEFF",
+                foreColor : "#5555AA",
+                font : "bold 12px sans-serif"
+            },
+            rowOptions : {
+                minHeight : 20
+            },
+            columnOptions : {
+                minWidth : 50,
+                adjustWidth : true
+            },
+            dataSource : sharedDataSource
+        }, $("#gridDs4")).refresh();
+    });
+</script>
+</html>
