@@ -8,8 +8,12 @@
     "prepublish": "tsc",
     "test": "node test/test.js"
   },
-  "author": "Roman Loginov",
+  "author": "logirom <loginov.roman@gmail.com>",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/logirom/simpleGrid.git"
+  },
   "dependencies": {
     "underscore": "~1.7.0",
     "jquery": "~2.1.0"

@@ -1,0 +1,21 @@
+{
+  "name": "simpleGrid",
+  "version": "0.0.1",
+  "homepage": "https://github.com/logirom/simpleGrid",
+  "authors": [
+    "logirom <loginov.roman@gmail.com>"
+  ],
+  "description": "Simple canvas based grid",
+  "main": "dist/simpleGrid.js",
+  "keywords": [
+    "grid"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
